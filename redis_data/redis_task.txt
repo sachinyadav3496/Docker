@@ -1,0 +1,4 @@
+1. Launch redis and rediscommander/redis-commander containers ini the separate custom redis network.
+2. Connect from the HTTP GUI of the redis-commander to the redis server and insert several key-value pairs.
+
+    HINT: you should use at least one env variable in the redis-commander container 

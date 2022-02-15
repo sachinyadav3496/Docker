@@ -1,0 +1,32 @@
+# create wordpress network first by running this command
+docker network create wordpress
+
+# pull images accordingly
+docker pull mysql:5.7
+docker pull wordpress:5.4
+docker pull phpmyadmin
+
+# create and run mysql container
+docker run --name mysql \
+    --network wordpress \
+    -e MYSQL_ROOT_PASSWORD=redhat \
+    -e MYSQL_USER=wordpress \
+    -e MYSQL_DATABASE=wordpress \
+    -e MYSQL_PASSWORD=wordpress \
+     -d mysql:5.7
+
+# create and run phpmyadmin container
+docker run --name phpmyadmin \
+    --network wordpress \
+    -e PMA_HOST=mysql \
+    -p 8081:80 \
+    -d phpmyadmin
+
+# create and run wordpress container
+docker run --name wordpress \
+    --network wordpress \
+    -p 8080:80 \
+    -d wordpress:5.4
+
+
+# open browser and setup accordingly 

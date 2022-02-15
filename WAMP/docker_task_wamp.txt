@@ -1,0 +1,13 @@
+Task
+
+1. Create new custom network wordpress
+2. Launch Container in wordpress network using images Use tagged images mysql:5.7 and wordpress:5.4
+3. Set env variables for mysql container:
+    - MYSQL_ROOT_PASSWORD
+    - MYSQL_DATABASE
+    - MYSQL_USER
+    - MYSQL_PASSWORD
+
+    (use them to connect with wordpress)
+4. Launch phpmyadmin container and connect this with mysql container
+5. Perform initial setup of Wordpress CMS

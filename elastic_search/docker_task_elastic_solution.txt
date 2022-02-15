@@ -1,0 +1,16 @@
+# CREATE NETWORK CALLED ELASTICSEARCH
+docker network create elasticsearch
+
+#ELASTIC SEARCH CONTAINER
+docker run --name elasticsearch \
+--network elasticsearch \
+-e "discovery.type=single-node"
+-p 9200:9200 \
+-d elasticsearch:7.16.3
+
+# CREATE CURL CONTAINER
+docker run \
+    --network elasticsearch \
+    --name curl \
+    -it appropriate/curl \
+    sh

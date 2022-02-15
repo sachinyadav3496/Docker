@@ -1,0 +1,8 @@
+ping
+
+info
+
+SET key1 "Hey there"
+
+GET key1
+

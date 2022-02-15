@@ -1,0 +1,31 @@
+#CREATE INDEX
+curl -XPUT http://elasticsearch:9200/my-index
+curl -XGET http://elasticsearch:9200/_cat/indices?v
+
+#INSERT DOCUMENTS INTO THE INDEX
+
+curl -XPOST http://elasticsearch:9200/my-index/cities/1 \
+    -d '{"city":"New York"}' \
+    -H 'Content-Type: application/json'
+
+curl -XPOST http://elasticsearch:9200/my-index/cities/2 \
+    -d '{"city":"Paris"}' \
+    -H 'Content-Type: application/json'
+
+
+curl -XPOST http://elasticsearch:9200/my-index/cities/2 \
+    -d '{"city":"London"}' \
+    -H 'Content-Type: application/json'
+
+
+#READ FIELDS MAPPING FOR THE INDEX
+curl -XGET http://elasticsearch:9200/my-index/_mapping?pretty
+
+# GET DOCUMENT BY ID
+curl -XGET http://elasticsearch:9200/my-index/cities/1?pretty
+
+# SEARCH ALL DOCUMENTS
+curl -XGET http://elasticsearch:9200/my-index/_search?pretty
+
+# SEARCH USING QUERY PARAMETER
+curl -XGET "http://elasticsearch:9200/my-index/_search?q=city:new&pretty"

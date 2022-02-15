@@ -1,0 +1,7 @@
+1. Create custom network called elasticsearch
+2. create elasticsearch container with custom name elasticsearch. 
+    User following environment variable: "discovery.type=single-node"
+    expose port 9200 in elasticsearch container and check connectivity in web browser
+    http://127.0.0.1:9200
+3. Run appropriate/curl container with custom name curl and -it options.
+    Override default command with sh command

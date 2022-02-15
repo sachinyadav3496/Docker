@@ -1,0 +1,8 @@
+START MYSQL SERVER WITH CUSTOM ROOT PASSWORD
+docker run -e MYSQL_ROOT_PASSWORD=my-password mysql
+
+START PHPMYADMIN WITH PMA_HOST VARIABLE (over IP address)
+docer run -p 8080:80 -e PMA_HOST=172.17.02 \
+    phpmyadmin
+
+    

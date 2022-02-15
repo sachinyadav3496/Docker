@@ -1,0 +1,5 @@
+docker network create redis 
+
+docker run --network redis --name redis -d redis
+
+docker run --name redis-commander --network redis -p 8081:8081  -e REDIS_HOST=redis -d rediscommander/redis-commander
